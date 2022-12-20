@@ -1,5 +1,5 @@
 <?php
-    include("protect_mestre.php");
+    include("../scriptphp/protect_mestre.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

@@ -10,5 +10,7 @@
         die("falha ao conectar: (".$mysqli -> connect_errno.")".$mysqli -> connect_error);
     }
 
+    $conn = mysqli_connect($host, $user, $senha, $db);
+
 
 ?>

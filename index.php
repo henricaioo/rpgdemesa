@@ -8,7 +8,7 @@
     <title>index</title>
 </head>
 <body>
-    <form action="login.php" method="POST">
+    <form action="scriptphp/login.php" method="POST">
         <div>
             <label for="user">User</label>
             <input type="text" name="user">
@@ -16,10 +16,21 @@
         <div>
             <label for="senha">Senha</label>
             <input type="password" name="senha">
+            <input type="number" name="senha" id="atr">
         </div>
         <div>
             <button type="submit">entrar</button>
         </div>
     </form>
+    <script>
+        document.getElementById("atr").onchange=()=>{
+            let valor = document.getElementById("atr").value
+            console.log(valor)
+        }
+        function name() {
+            let valor = document.getElementById("atr").value
+            console.log(valor)
+        }
+    </script>
 </body>
 </html>

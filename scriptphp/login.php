@@ -27,7 +27,7 @@
                 $_SESSION['id'] = $user['id_user'];
                 $_SESSION['perfil'] = $user['perfil'];
 
-                header("location: home.php");
+                header("location: ../home.php");
             } else {
                 echo 'falha ao logar';
             }

@@ -1,5 +1,5 @@
 <?php
-    include('protect.php');
+    include('scriptphp/protect.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -11,7 +11,7 @@
 </head>
 <body>
     <p>bem vind@ <?php echo $_SESSION['id'] ?></p>
-    <a href="mestre.php">mestre</a>
-    <a href="logout.php">logout</a>
+    <a href="mestre/mestre.php">mestre</a>
+    <a href="scriptphp/logout.php">logout</a>
 </body>
 </html>
