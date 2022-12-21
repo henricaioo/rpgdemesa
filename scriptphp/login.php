@@ -25,6 +25,7 @@
                 }
 
                 $_SESSION['id'] = $user['id_user'];
+                $_SESSION['user'] = $user['user'];
                 $_SESSION['perfil'] = $user['perfil'];
 
                 header("location: ../home.php");

@@ -11,5 +11,6 @@
 </head>
 <body>
     <p>olá, mestre <?php echo $_SESSION['id']?></p>
+    <a href="cadastrorpg.php">+ Criar RPG</a>
 </body>
 </html>

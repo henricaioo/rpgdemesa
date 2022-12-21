@@ -3,30 +3,28 @@ USE rp;
 
 CREATE TABLE usuario (
     id_user int PRIMARY KEY AUTO_INCREMENT, 
-    user varchar(15) not null,
+    user varchar(15) not null unique,
     senha text not null,
     perfil int not null
 );
 
 CREATE TABLE rpg (
     id_rpg int PRIMARY KEY AUTO_INCREMENT, 
-    nome varchar(15) not null,
+    nome varchar(25) not null unique,
     premissa text,
-    criador int not null,
-    FOREIGN KEY (criador) REFERENCES usuario(id_user)
+    criador varchar(15) not null,
 );
 
 CREATE TABLE anotacaoRpg (
     id_anotacao int PRIMARY KEY AUTO_INCREMENT, 
     titulo varchar(15) not null,
     anotacao text,
-    rpg int not null,
-    FOREIGN KEY (rpg) REFERENCES rpg(id_rpg)
+    rpg varchar(25) not null
 );
 
 CREATE TABLE personagem (
     id_personagem int PRIMARY KEY AUTO_INCREMENT, 
-    nome varchar(15) not null,
+    nome varchar(25) not null unique,
     profissao text,
     idade int not null,
     sexo varchar(10) not null,
@@ -35,60 +33,37 @@ CREATE TABLE personagem (
     conceito text not null,
     qualidades text not null,
     defeitos text not null,
-    user int not null,
-    FOREIGN KEY (user) REFERENCES usuario(id_user)
+    user varchar(15) not null,
+    rpg varchar(25) not null
 );
 
 CREATE TABLE anotacaoPlayer (
     id_anotacaoplayer int PRIMARY KEY AUTO_INCREMENT, 
     titulo varchar(15) not null,
     anotacao text,
-    player int not null,
-    FOREIGN KEY (player) REFERENCES personagem(id_personagem)
-);
-
-CREATE TABLE item (
-    id_item int PRIMARY KEY AUTO_INCREMENT, 
-    nome varchar(40) not null,
-    descricao text
+    player varchar(25) not null
 );
 
 CREATE TABLE inventario (
     id_inventario int PRIMARY KEY AUTO_INCREMENT, 
-    personagem int not null,
-    item int not null,
-    FOREIGN KEY (personagem) REFERENCES personagem(id_personagem),
-    FOREIGN KEY (item) REFERENCES item(id_item)
+    personagem varchar(25) not null,
+    quant int not null,
+    nome varchar(40) not null,
+    descricao text
 );
 
-CREATE TABLE atributos (
-    id_atributo int PRIMARY KEY AUTO_INCREMENT, 
-    nome varchar(10) not null,
-    rpg int not null,
-    FOREIGN KEY (rpg) REFERENCES rpg(id_rpg)
-);
 
-CREATE TABLE atributoPlayer (
+CREATE TABLE atributo (
     id_atributoplayer int PRIMARY KEY AUTO_INCREMENT, 
-    valor varchar(10) not null,
-    player int not null,
-    atributo int not null,
-    FOREIGN KEY (player) REFERENCES personagem(id_personagem),
-    FOREIGN KEY (atributo) REFERENCES atributos(id_atributo)
+    nome varchar(20) not null,
+    valor int not null,
+    player varchar(25) not null,
+    atributo int not null
 );
 
-CREATE TABLE statu (
-    id_status int PRIMARY KEY AUTO_INCREMENT, 
-    nome varchar(10) not null,
-    rpg int not null,
-    FOREIGN KEY (rpg) REFERENCES rpg(id_rpg)
-);
-
-CREATE TABLE statusPlayer (
+CREATE TABLE status (
     id_statusplayer int PRIMARY KEY AUTO_INCREMENT, 
-    valor varchar(10) not null,
-    player int not null,
-    statu int not null,
-    FOREIGN KEY (player) REFERENCES personagem(id_personagem),
-    FOREIGN KEY (statu) REFERENCES statu(id_status)
+    nome varchar(20) not null,
+    valor varchar(20) not null,
+    player varchar(25) not null
 );

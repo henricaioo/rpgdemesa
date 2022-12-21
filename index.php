@@ -16,7 +16,7 @@
         <div>
             <label for="senha">Senha</label>
             <input type="password" name="senha">
-            <input type="number" name="senha" id="atr">
+            <input type="number" name="" id="atr">
         </div>
         <div>
             <button type="submit">entrar</button>
