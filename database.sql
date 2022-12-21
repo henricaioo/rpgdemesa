@@ -12,7 +12,7 @@ CREATE TABLE rpg (
     id_rpg int PRIMARY KEY AUTO_INCREMENT, 
     nome varchar(25) not null unique,
     premissa text,
-    criador varchar(15) not null,
+    criador varchar(15) not null
 );
 
 CREATE TABLE anotacaoRpg (
