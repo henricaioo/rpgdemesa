@@ -19,9 +19,9 @@
 
     try {
         mysqli_query($conn, $sql);
-        echo "<h2>Usuário cadastrado com sucesso</h2><a href='rpgplayer.php'>index</a>";
+        echo "<h2>Personagem cadastrado com sucesso</h2><a href='../home.php'>index</a>";
     } catch (\Throwable $th) {
-        echo "Já existe um rpg cadastrado com esse nome";
+        echo "Já existe um personagem cadastrado com esse nome";
     }
     
 ?>

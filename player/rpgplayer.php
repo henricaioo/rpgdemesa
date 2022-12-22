@@ -3,12 +3,13 @@
     include '../scriptphp/connect.php';
 
     $rp = $_POST['rp'];
-    $sql = "SELECT * FROM rpg WHERE id_rpg = '$rp'";
+    $sql = "SELECT * FROM rpg WHERE nome = '$rp'";
     $rpg = mysqli_query($conn, $sql);
     $linha = mysqli_fetch_assoc($rpg);
 
     $rp = $linha['nome'];
-    $sql = "SELECT * FROM anotacaorpg WHERE rpg = '$rp' AND player = '$player'";
+    $player = $_SESSION['user'];
+    $sql = "SELECT * FROM anotacaorpg WHERE rpg = '$rp' AND 'player' = '$player'";
     $notas = mysqli_query($conn, $sql);
     
     $sql = "SELECT * FROM personagem WHERE rpg = '$rp' AND user = '$player'";
@@ -25,7 +26,10 @@
 <body>
     <h1><?php echo $linha['nome'] ?></h1>
     <h2>Notas</h2>
-    
+    <form action="notaplayer.php" method="POST">
+        <input type="hidden" name="rp" value="<?php echo $rp ?>">
+        <button type="submit">criar nota</button>
+    </form>
     <?php 
     
         while ($anotacoes = mysqli_fetch_assoc($notas)) {

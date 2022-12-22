@@ -36,6 +36,18 @@
                                 <th>$nome</th>
                                 <th>$resumo</th>
                                 <th>$cria</th>
+                                <th>
+                                    <form method = 'post' action='player/cadastroplayer.php'>
+                                        <input type='hidden' value = '$nome' name='rp'>
+                                        <button type='submit'>+ criar personagem</button>
+                                    </form>
+                                </th>
+                                <th>
+                                    <form method = 'post' action='player/rpgplayer.php'>
+                                        <input type='hidden' value = '$nome' name='rp'>
+                                        <button type='submit'>entrar</button>
+                                    </form>
+                                </th>
                             </tr>";
                     }
                 ?>

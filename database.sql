@@ -41,7 +41,8 @@ CREATE TABLE anotacaoPlayer (
     id_anotacaoplayer int PRIMARY KEY AUTO_INCREMENT, 
     titulo varchar(15) not null,
     anotacao text,
-    player varchar(25) not null
+    player varchar(25) not null,
+    rpg varchar(25) not null
 );
 
 CREATE TABLE inventario (
