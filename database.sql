@@ -57,8 +57,7 @@ CREATE TABLE atributo (
     id_atributoplayer int PRIMARY KEY AUTO_INCREMENT, 
     nome varchar(20) not null,
     valor int not null,
-    player varchar(25) not null,
-    atributo int not null
+    player varchar(25) not null
 );
 
 CREATE TABLE status (
