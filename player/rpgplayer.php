@@ -1,5 +1,5 @@
 <?php 
-    include('../scriptphp/protect_mestre.php');
+    include('../scriptphp/protect.php');
     include '../scriptphp/connect.php';
 
     $rp = $_POST['rp'];
@@ -8,10 +8,10 @@
     $linha = mysqli_fetch_assoc($rpg);
 
     $rp = $linha['nome'];
-    $sql = "SELECT * FROM anotacaorpg WHERE rpg = '$rp'";
+    $sql = "SELECT * FROM anotacaorpg WHERE rpg = '$rp' AND player = '$player'";
     $notas = mysqli_query($conn, $sql);
     
-    $sql = "SELECT * FROM personagem WHERE rpg = '$rp'";
+    $sql = "SELECT * FROM personagem WHERE rpg = '$rp' AND user = '$player'";
     $players = mysqli_query($conn, $sql);
 ?>
 <!DOCTYPE html>
@@ -40,6 +40,10 @@
     ?>
 
     <h2>Players</h2>
+    <form action="cadastrarplayer.php">
+        <input type="hidden" value="<?php echo $rp ?>" name="rp">
+        <button type="submit">+ criar personagem</button>
+    </form>
     <thead>
         <tr>
             <th>Nome</th>
