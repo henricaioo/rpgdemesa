@@ -24,7 +24,6 @@
                 <tr>
                     <th>Nome</th>
                     <th>Resumo</th>
-                    <th>Criador</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,13 +31,24 @@
                     while ($linha = mysqli_fetch_assoc($rpgs)) {
                         $nome = $linha['nome'];
                         $resumo = $linha['premissa'];
-                        $cria = $linha['criador'];
+                        $rp = $linha['id_rpg'];
                         
                         echo "
                             <tr>
                                 <th>$nome</th>
                                 <th>$resumo</th>
-                                <th>$cria</th>
+                                <th>
+                                    <form method = 'post' action='rpgmestre.php'>
+                                        <input type='hidden' value = '$rp' name='rp'>
+                                        <button type='submit'>abrir</button>
+                                    </form>
+                                </th>
+                                <th>
+                                    <form method = 'post' action='deletrpg.php'>
+                                        <input type='hidden' value = '$rp' name='delet'>
+                                        <button type='submit'>excluir</button>
+                                    </form>
+                                </th>
                             </tr>";
                     }
                 ?>
