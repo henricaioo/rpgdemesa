@@ -9,7 +9,7 @@
 
     $rp = $linha['nome'];
     $player = $_SESSION['user'];
-    $sql = "SELECT * FROM anotacaorpg WHERE rpg = '$rp' AND 'player' = '$player'";
+    $sql = "SELECT * FROM anotacaoPlayer WHERE rpg = '$rp' AND user = '$player'";
     $notas = mysqli_query($conn, $sql);
     
     $sql = "SELECT * FROM personagem WHERE rpg = '$rp' AND user = '$player'";
@@ -33,12 +33,17 @@
     <?php 
     
         while ($anotacoes = mysqli_fetch_assoc($notas)) {
+            $id = $anotacoes['id_anotacaoplayer'];
             $titulo = $anotacoes['titulo'];
             $anotacao = $anotacoes['anotacao'];
             
             echo "
             <h3>$titulo</h3>
-            <p>$anotacao</p>";
+            <p>$anotacao</p>
+            <form action='editnotaplayer.php' method='POST'>
+                <input type='hidden' name='id' value='$id'>
+                <button type='submit'>editar nota</button>
+            </form>";
         }
     
     ?>

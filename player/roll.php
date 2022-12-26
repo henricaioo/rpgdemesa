@@ -24,7 +24,7 @@
                 ";
             }
         ?>
-        <button type='button' onclick="rolar()">rolar</button>
+        <button type='button' onclick="rolar()" accesskey="s">rolar</button>
         <p>Resultado: <b id="result"></b></p>
     </form>
     <script>
