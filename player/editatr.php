@@ -25,7 +25,7 @@
             <input type="number" name="valor" value="<?php echo $atr['valor'] ?>">
         </div>
         <input type="hidden" name="player" value="<?php echo $atr['player'] ?>">
-        <input type="hidden" name="id" value="<?php echo $atr['id_statusplayer'] ?>">
+        <input type="hidden" name="id" value="<?php echo $atr['id_atributoplayer'] ?>">
         <button type="submit">salvar</button>
     </form>
 </body>

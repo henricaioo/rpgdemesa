@@ -53,7 +53,7 @@
     ?>
 
     <h2>Players</h2>
-    <form action="cadastrarplayer.php">
+    <form action="cadastroplayer.php" method="POST">
         <input type="hidden" value="<?php echo $rp ?>" name="rp">
         <button type="submit">+ criar personagem</button>
     </form>
@@ -80,8 +80,8 @@
                             </form>
                         </th>
                         <th>
-                            <form method = 'post' action='deletrpg.php'>
-                                <input type='hidden' value = '$rp' name='delet'>
+                            <form method = 'post' action='deletpersona.php'>
+                                <input type='hidden' value = '$nome' name='player'>
                                 <button type='submit'>excluir</button>
                             </form>
                         </th>

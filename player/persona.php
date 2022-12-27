@@ -5,9 +5,6 @@
     $sql = "SELECT * FROM personagem WHERE nome = '$player'";
     $res = mysqli_query($conn, $sql);
     $persona = mysqli_fetch_assoc($res);
-
-    $sql = "SELECT * FROM status WHERE player = '$player'";
-    $res = mysqli_query($conn, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -61,6 +58,60 @@
         <button type="submit">cadastrar</button>
     </form>
     <div>
+        <h3>Itens</h3>
+        <h4>salvar item</h4>
+        <form action="cadastraritem.php" method="post">
+            <div>
+                <label for="quant">Quantidade</label>
+                <input type="number" name="quant"> 
+            </div>
+            <div>
+                <label for="nome">Nome</label>
+                <input type="text" name="nome"> 
+            </div>
+            <div>
+                <label for="desc">Descrição</label>
+                <input type="text" name="desc"> 
+            </div>
+            <input type="hidden" value="<?php echo $player ?>" name="player">
+            <button type="submit">salvar item</button>
+        </form>
+        <h4>Inventário</h4>
+        <?php 
+            $sql = "SELECT * FROM inventario WHERE personagem = '$player'";
+            $res = mysqli_query($conn, $sql);
+            while ($item = mysqli_fetch_assoc($res)){
+                $id = $item['id_inventario'];
+                $quant = $item['quant'];
+                $nome = $item['nome'];
+                $descricao = $item['descricao'];
+                
+                echo '
+                <form action="salvaritem.php" method="post">
+                    <div>
+                        <label for="quant">Quantidade</label>
+                        <input type="number" name="quant" value="'.$quant.'"> 
+                    </div>
+                    <div>
+                        <label for="nome">Nome</label>
+                        <input type="text" name="nome" value="'.$nome.'"> 
+                    </div>
+                    <div>
+                        <label for="desc">Descrição</label>
+                        <input type="text" name="desc" value="'.$descricao.'"> 
+                    </div>
+                    <input type="hidden" value="'.$id.'" name="id">
+                    <button type="submit">salvar item</button>
+                </form>';
+                echo "
+                <form action='deletitem.php' method='post'>
+                    <input type='hidden' value='$id' name='id'>
+                    <button type='submit'>Excluir</button>
+                </form>";
+            }
+        ?>
+    </div>
+    <div>
         <h3>Status</h3>
         <?php 
             echo "
@@ -68,6 +119,8 @@
                 <input type='hidden' value='$player' name='player'>
                 <button type='submit'>adicionar atributos</button>
             </form>";
+            $sql = "SELECT * FROM status WHERE player = '$player'";
+            $res = mysqli_query($conn, $sql);
             while ($status = mysqli_fetch_assoc($res)) {
                 $id = $status['id_statusplayer'];
                 $nome = $status['nome'];
@@ -92,13 +145,13 @@
         <?php 
             echo "
             <form action='cadastroatr.php' method='post'>
-                <input type='hidden' value='$player'>
+                <input type='hidden' value='$player' name='player'>
                 <button type='submit'>adicionar atributos</button>
             </form>";
             $sql = "SELECT * FROM atributo WHERE player = '$player'";
             $res = mysqli_query($conn, $sql);
             while ($status = mysqli_fetch_assoc($res)) {
-                $id = $status['id_statusplayer'];
+                $id = $status['id_atributoplayer'];
                 $nome = $status['nome'];
                 $valor = $status['valor'];
                 echo "
