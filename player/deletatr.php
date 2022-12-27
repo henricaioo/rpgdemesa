@@ -5,9 +5,9 @@
     $player = $_SESSION['user'];
     $id = $_POST['id'];
 
-    $sql = "DELETE FROM anotacaoPlayer WHERE id_anotacaoplayer = ".$id."AND user = '$player'";
+    $sql = "DELETE FROM atributo WHERE id_atributoplayer = ".$id;
 
     if (mysqli_query($conn, $sql)) {
-        echo "<h2>Nota excluída com sucesso</h2><a href='rpgplayer.php'>index</a>";
+        echo "<h2>Atributo exluído com sucesso</h2><a href='../home.php'>index</a>";
     }
 ?>

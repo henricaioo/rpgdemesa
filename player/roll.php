@@ -3,7 +3,8 @@
     include("../scriptphp/protect.php");
     include "../scriptphp/connect.php";
 
-    $sql = "SELECT * FROM atributo";
+    $player = $_POST['player'];
+    $sql = "SELECT * FROM atributo WHERE player = '$player'";
     $atr = mysqli_query($conn, $sql);
 
 ?>
@@ -20,11 +21,17 @@
         <?php 
             while($dados = mysqli_fetch_assoc($atr)){
                 echo "<input type='checkbox' value='".$dados['valor']."'>
-                    <label>".$dados['nome']." +". $dados['valor'] ."</label>
+                    <label>".$dados['nome']." ". $dados['valor'] ."</label>
                 ";
             }
         ?>
-        <button type='button' onclick="rolar()" accesskey="s">rolar</button>
+        <button type='button' onclick="rolar(4)">D4</button>
+        <button type='button' onclick="rolar(6)">D6</button>
+        <button type='button' onclick="rolar(8)">D8</button>
+        <button type='button' onclick="rolar(10)">D10</button>
+        <button type='button' onclick="rolar(12)">D12</button>
+        <button type='button' onclick="rolar(20)">D20</button>
+        <button type='button' onclick="rolar(100)">D100</button>
         <p>Resultado: <b id="result"></b></p>
     </form>
     <script>
@@ -32,7 +39,7 @@
         const result = document.getElementById('result')
         console.log(selecionado)
         console.log(document.querySelector("input").hasAttribute("checked"))
-        function rolar() {
+        function rolar(dice) {
             let valor = 0
             // for (var atributo in selecionado.item(0)) {
             //     console.log(atributo.value)
@@ -46,7 +53,7 @@
                 }
                 
             }
-            valor += Math.floor(Math.random() * 20)+1;
+            valor += Math.floor(Math.random() * dice)+1;
             result.innerHTML = valor
             
         }

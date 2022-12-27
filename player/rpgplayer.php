@@ -43,6 +43,10 @@
             <form action='editnotaplayer.php' method='POST'>
                 <input type='hidden' name='id' value='$id'>
                 <button type='submit'>editar nota</button>
+            </form>
+            <form action='deletnota.php' method='POST'>
+                <input type='hidden' name='id' value='$id'>
+                <button type='submit'>deletar nota</button>
             </form>";
         }
     
@@ -70,8 +74,8 @@
                         <th>$nome</th>
                         <th>$user</th>
                         <th>
-                            <form method = 'post' action='rpgmestre.php'>
-                                <input type='hidden' value = '$rp' name='rp'>
+                            <form method = 'post' action='persona.php'>
+                                <input type='hidden' value = '$nome' name='player'>
                                 <button type='submit'>abrir</button>
                             </form>
                         </th>
