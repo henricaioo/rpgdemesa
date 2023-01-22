@@ -2,8 +2,8 @@
 
     $host = 'localhost';
     $db = 'rp';
-    $user = 'root';
-    $senha = '';
+    $user = 'caioh';
+    $senha = 'caioh@21012023';
 
     $mysqli = new mysqli($host, $user, $senha, $db);
     if ($mysqli -> connect_errno) {
