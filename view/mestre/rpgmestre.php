@@ -8,7 +8,7 @@
     $linha = mysqli_fetch_assoc($rpg);
 
     $rp = $linha['nome'];
-    $sql = "SELECT * FROM anotacaoRpg WHERE 'rpg' = '$rp'";
+    $sql = "SELECT * FROM anotacaoRpg WHERE rpg = '$rp'";
     $notas = mysqli_query($conn, $sql);
 
 ?>
