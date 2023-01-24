@@ -32,6 +32,7 @@
             <button type="submit" class='btn btn-info'>+ Criar nota</button>
         </form>
             <?php 
+                echo $sql;
                 while ($anotacoes = mysqli_fetch_assoc($notas)) {
                     $id = $anotacoes['id_anotacao'];
                     $titulo = $anotacoes['titulo'];
