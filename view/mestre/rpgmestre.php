@@ -31,8 +31,7 @@
             <input type="hidden" name="rp" value="<?php echo $rp ?>">
             <button type="submit" class='btn btn-info'>+ Criar nota</button>
         </form>
-            <?php 
-                echo $sql;
+            <?php
                 while ($anotacoes = mysqli_fetch_assoc($notas)) {
                     $id = $anotacoes['id_anotacao'];
                     $titulo = $anotacoes['titulo'];
