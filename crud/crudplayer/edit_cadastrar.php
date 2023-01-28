@@ -33,10 +33,6 @@
             mysqli_query($conn, $sql3);
             echo "<h2>Usuário editado com sucesso. <a href='../../scriptphp/logout.php' class='text-info' style='text-decoration: none;'>index</a></h2>";
         } catch (\Throwable $th) {
-            echo $sql;
-            echo $sql1;
-            echo $sql2;
-            echo $sql3;
             echo "Já existe um usuário cadastrado com esse nome";
         }
     ?>
