@@ -1,6 +1,6 @@
 <?php 
-    include('../scriptphp/protect.php');
-    include '../scriptphp/connect.php';
+    include('../../scriptphp/protect.php');
+    include '../../scriptphp/connect.php';
 
     $player = $_POST['player'];
 
