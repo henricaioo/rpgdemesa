@@ -10,6 +10,6 @@
     $sql = "UPDATE `atributo` SET `nome` = '$nome', `valor` = '$valor' WHERE id_atributoplayer = $id";
 
     if (mysqli_query($conn, $sql)) {
-        echo "<h2>Atributo editado com sucesso</h2><a href='../home.php'>home</a>";
+        echo "<h2>Atributo editado com sucesso <a href='../../home.php'>home</a></h2>";
     }
 ?>
