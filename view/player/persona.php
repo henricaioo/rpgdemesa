@@ -201,7 +201,7 @@
                     $y += 1;
                     echo "
                         <div class='d-flex border border-dark rounded mb-3'>
-                            <form action='../../crud/crudatr/atrsalvar.php' method='post' id='editstatus$y' class='d-flex flex-column align-items-center p-2'>
+                            <form action='../../crud/crudatr/atrsalvar.php' method='post' id='editatr$y' class='d-flex flex-column align-items-center p-2'>
                                 <div>
                                     <label for='nome'>Nome(maximo 20 caracteres)</label>
                                     <input type='text' name='nome' value='$nome' class='form-control border-dark' required maxlength='20'>
@@ -214,7 +214,7 @@
                             </form>
                             <div class='border-start border-dark d-flex flex-column justify-content-center'>
                                 <div class='d-flex flex-column align-items-center mx-2'>
-                                    <button type='submit' form='editstatus$y' class='btn btn-info my-1'>Salvar alterações</button>
+                                    <button type='submit' form='editatr$y' class='btn btn-info my-1'>Salvar alterações</button>
                                     <form action='../../crud/crudatr/deletatr.php' method='post'>
                                         <input type='hidden' value='$id' name='id'>
                                         <button type='submit' class='btn btn-info my-1'>Excluir atributo</button>
