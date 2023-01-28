@@ -7,6 +7,6 @@
     $sql = "DELETE FROM personagem WHERE nome = '$player'";
 
     if (mysqli_query($conn, $sql)) {
-        echo "<h2>Personagem exluído com sucesso</h2><a href='../home.php'>index</a>";
+        echo "<h2>Personagem exluído com sucesso <a href='../../home.php'>index</a></h2>";
     }
 ?>
