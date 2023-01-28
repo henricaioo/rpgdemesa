@@ -8,6 +8,6 @@
     $sql = "DELETE FROM status WHERE id_statusplayer = ".$id;
 
     if (mysqli_query($conn, $sql)) {
-        echo "<h2>status exluído com sucesso</h2><a href='../home.php'>index</a>";
+        echo "<h2>status exluído com sucesso <a href='../../home.php'>index</a></h2>";
     }
 ?>
